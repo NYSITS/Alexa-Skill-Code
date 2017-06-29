@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Randomizer</title>
+    <link rel="icon" href="logo.jpg">
+    <link rel="stylesheet" href="Supernice.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="random.js"></script>
+  </head>
+
+  <body>
+    <div id="header" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          <img id="main-img" src="tshirtexe.png" alt="Women in Business"/>
+        </div>
+        <div class="col-sm-8">
+          <h1 class="light-text">Major Shopping Event Randomizer</h1>
+        </div>
+        <div class="col-sm-2">
+          <form id="file-form">
+            <label class="btn btn-primary" for="my-file-selector">
+              <input id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val()); handelFiles(this.files);">
+                Choose fieldset
+              </label>
+              <a class="help" onclick="openModal('helpModal')" href="#">Help</a>
+              <span class='label label-info' id="upload-file-info"></span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="helpModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('helpModal')">&times;</span>
+        <h3>Help</h3>
+        <p>To use the winner randomizer, upload a CSV file that contains one column with the names for the winner(s) to be chosen from.</p>
+        <p>When a winner is selecte, they cannot be chosen another time.</p>
+        <p>Previously selected winners will be displayed at the bottom of the page.</p>
+      </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('errorModal')">&times;</span>
+        <h3>ERROR</h3>
+        <p>Missing file with possible winner names. Please upload a file and try again.</p>
+      </div>
+    </div>
+
+    <div id="emptyList" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('emptyList')">&times;</span>
+        <h3>ERROR</h3>
+        <p>Everyone has already won. Upload a new file to randomize more winners.</p>
+      </div>
+    </div>
+
+    <div id="banner-area" class="container-fluid">
+      <div class="jumbotron">
+        <h1 id="winners-name">Winner's name displayed here</h1>
+        <br><br><br>
+        <p><a onClick="randomizeWinner()" class="btn btn-primary btn-lg" href="#" role="button">Next Winner</a></p>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div id="all-winners" class="col-sm-12">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

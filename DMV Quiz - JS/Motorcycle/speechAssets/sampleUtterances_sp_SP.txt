@@ -1,0 +1,18 @@
+AnswerIntent la respuesta es {Answer}
+AnswerIntent mi respuesta es {Answer}
+AnswerIntent Lo es {Answer}
+AnswerIntent {Answer} es mi respuesta
+AnswerIntent {Answer}
+
+AMAZON.StartOverIntent empezar juego
+AMAZON.StartOverIntent nuevo juego
+AMAZON.StartOverIntent comienzo
+AMAZON.StartOverIntent empieza un juego nuevo
+
+DontKnowIntent no lo sé
+DontKnowIntent no lo sé
+DontKnowIntent omitir
+DontKnowIntent No se que
+DontKnowIntent quién sabe
+DontKnowIntent No conozco esta pregunta
+DontKnowIntent No se que uno

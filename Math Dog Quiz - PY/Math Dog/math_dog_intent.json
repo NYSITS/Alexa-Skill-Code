@@ -1,0 +1,62 @@
+{
+  "intents": [
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "DifficultyMenu"
+    },
+    {
+      "intent": "SetDifficulty",
+      "slots": [
+        {
+          "name": "Number",
+          "type": "AMAZON.NUMBER"
+        }
+        ]
+    },
+    {
+      "intent": "SetRoundLength",
+      "slots": [
+        {
+          "name": "Number",
+          "type": "AMAZON.NUMBER"
+        }
+        ]
+    },
+    {
+      "intent": "StartGame"
+    },
+    {
+      "intent": "NumericResponse",
+      "slots": [
+        {
+          "name": "Number",
+          "type": "AMAZON.NUMBER"
+        }
+        ]
+    },
+    {
+      "intent": "TrueFalseResponse",
+      "slots": [
+        {
+          "name": "TrueFalse",
+          "type": "TRUE_OR_FALSE"
+        }
+        ]
+    }
+  ]
+}
+

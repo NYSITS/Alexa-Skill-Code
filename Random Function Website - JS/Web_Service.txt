@@ -1,0 +1,90 @@
+--------------- GET REQUEST: --------------------------------
+GET /rss/tours.php HTTP/1.1
+Host: services.explorecalifornia.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:6.0) Gecko/20100101 FireFox/6.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us, en;q=0.5
+Accept-Encoding: gzip, deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Cache-Control: max-age=0
+
+
+services.explorecalifornia.org/pox/tours.php = XML format
+services.explorecalifornia.org/json/tours.php = JSON format
+
+MOST POPULAR VERBS USED IN WEB SERVICES:
+  GET - get data
+  POST - add data
+  PUT - update
+  DELETE - delete data
+  PATCH and MERGE also in user
+
+-------------------- POST REQUEST: -------------------
+POST /pox/tours.php HTTP/1.1
+Host: services.explorecalifornia.org
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 11
+
+packageid=5
+
+------------------ POST REQUEST WITH XML ----------------
+POST: /pox/tours.php HTTP/1.1
+Host: services.explorecalifornia.org
+Accept: application/xml
+Content-Type: application/xml
+Content-Length: 94
+
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <packageid>5</packageid>
+</parameters>
+
+----------------- POST REQUEST WITH JSON ----------------
+POST: /pox/tours.php HTTP/1.1
+Host: services.explorecalifornia.org
+Accept: application/json
+Content-Type: application/json
+Content-Length: 41
+
+{"parameters": {
+    "packageid": 5
+  }
+}
+
+---------------- HTTP RESPONSE SYNTAX ------------------
+HTTP/1.1 200 OK
+Date: Tue, 02 Jul 2013 21:45:02 GMT
+Server: Apache
+Cache-Control: max-age=315360000
+Expires: Fri, 30 Jun 2023 21:45:02 GMT
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 10331
+Connection: close
+Content-Type: text/xml
+
+<?xml version="1.0"?> ...
+
+--------------- SAMPLE SOAP REQUEST -------------------
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+  <soap:Body xmlns:m="http://www.example.org/stock">
+    <m:GetStockPrice>
+      <m:StockName>IBM</m:StockName>
+    </m:GetStockPrice>
+  </soap:Body>
+</soap:Envelope>
+
+-------------- SAMPLE SOAP RESPONSE -------------------
+<?xml version="1.0"?>
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+  <soap:Body xmlns:m="http://www.example.org/stock">
+    <m:GetStockPriceResponse>
+      <m:Price>34.5</m:Price>
+    </m:GetStockPriceResponse>
+  </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,129 @@
+Simple Object Access Protocol (SOAP)
+  XML-based language
+  Developed for Microsoft in the late 1990s
+
+SOAP's Goals
+  Extensibility
+    Can be adapted to any business process
+  Neutrality
+    Usually used with HTTP(s), but is compatiable with asynchronous protocols (FTP, SMTP)
+  Independence
+    No lock-in to vendors, operating systems or languages
+
+SOAP 1.1
+  Final recommendation released in 2000
+SOAP 1.2
+  Final recommendation released in 2007
+  Clearer processing and extensibility models
+  Better web integration
+
+The SOAP Envelope
+  <env:Envelope
+    xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+    ...
+  </env:Envelope>
+
+Other SOAP Namespaces
+  http://www.w3.org/2003/05/soap-encoding
+  http://www.w3.org/2003/05/soap-rpc
+  http://www.w3.org/2004/08/representation
+  http://www.w3.org/2004/08/xop/include
+  http://www.w3.org/2004/11/xmlmime
+
+XML Namespaces and Prefixes
+  <?xml version="1.0"?>
+  <env:Envelope
+    xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+    <env:Header>
+    ...
+    </env:Header>
+    <env:Body>
+    ...
+    </env:Body>
+  </env:Envelope>
+
+SOAP Header
+  <env:Header>
+    <n:alertcontrol xmlns:n="http://example.org/stock">
+      <n:priority>1</n:priority>
+      <n:expires>2013-07-22T14:00:00-05:00</n:expires>
+    </n:alertcontrol>
+  </env:Header>
+
+SOAP Body
+  <env:Body>
+    <m:GetStockPrice xmlns:m="http://www.example.org/stock">
+      <m:StockName>IBM</m:StockName>
+    </m:GetStockPrice>
+  </env:Body>
+
+SOAP Response
+  <?xml version="1.0"?>
+  <soap:Envelope
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body xmlns:m="http://www.example.org/stock">
+      <m:GetStockPriceResponse>
+        <m:Price>34.5</m:Price>
+      </m:GetStockPriceResponse>
+    </soap:Body>
+  </soap:Envelope>
+
+SOAP Fault
+  <env:Body>
+    <env:Fault>
+      <env:Code><env:Value>env:Sender</env:Value></env:Code>
+      <env:Reason><env:Text xml:lang="en-US">
+        Message does not have necessary info
+      </env:Text></env:Reason>
+      <env:Role>http://example.com/stock</env:Role>
+      <env:Detail></env:Detail>
+    </env:Fault>
+  </env:Body>
+
+Built In Primitive Datatypes
+  String
+  Boolean
+  Decimal
+  Float
+  Double
+  Duration
+  dateTime
+  time
+  date
+  gYearMonth
+  gYear
+  gMonthDay
+  gDay
+  gMonth
+  hexBinary
+  base64Binary
+  anyURI
+  QName
+  NOTATION
+
+Web Services Description Language (WSDL)
+  <element name="id" type="xsd:integer"/>
+  <element name="name" type="xsd:string"/>
+  <element name="age" type="xsd:integer"/>
+
+Declaring an Array Type
+  <complexType name="ArrayOfFloat">
+    <complexContent>
+      <restriction base="soapenc:Array">
+        <attribute ref="soapenc:arrayType"
+          wsdl:arrayType="xsd:float[]"/>
+      </restriction>
+    </complexContent>
+  <complexType>
+
+WSDL Root Element: "Definitions"
+  <definitions name="HelloService"
+    targetNamespace=
+      "http://www.examples.com/wsdl/HelloService.wsdl"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://www.examples.com/wsdl/HelloService.wsdl"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    ...
+  </definitions>
+  
